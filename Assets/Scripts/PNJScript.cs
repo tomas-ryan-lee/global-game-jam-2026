@@ -6,16 +6,9 @@ public class PNJScript : MonoBehaviour
     [SerializeField] private GameObject _mask;
     [SerializeField][TextAreaAttribute] string _dialogText;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ChangeMask(GameObject newMask)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        _mask = newMask;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,6 +17,7 @@ public class PNJScript : MonoBehaviour
         {
             GameManager.Instance.canOpenDialog = true;
             GameManager.Instance.dialogText = _dialogText;
+            GameManager.Instance.pnjToUpdate = this;
         }
     }
 

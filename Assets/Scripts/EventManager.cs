@@ -6,6 +6,7 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance { get; private set; }
 
     public static event Action OnOpenDialogPanel;
+    public static event Action OnCloseDialogPanel;
 
     private void Awake()
     {
@@ -20,4 +21,5 @@ public class EventManager : MonoBehaviour
     }
 
     public static void DialogPanelOpened() => OnOpenDialogPanel?.Invoke();
+    public static void DialogPanelClosed() => OnCloseDialogPanel?.Invoke();
 }

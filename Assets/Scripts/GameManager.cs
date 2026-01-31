@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public bool canOpenDialog;
     public string dialogText;
+    public PNJScript pnjToUpdate;
     private GameState _state;
 
     private void Awake()
@@ -73,9 +75,15 @@ public class GameManager : MonoBehaviour
             EventManager.DialogPanelOpened();
         }
     }
-    
 
-    private void UpdateMask() {}
+    public void ChangeMask(GameObject newMask) 
+    {
+        pnjToUpdate.ChangeMask(newMask);
+
+        CloseDialog();
+    }
+
+    private void CloseDialog() => EventManager.DialogPanelClosed();
     
     #endregion
 }

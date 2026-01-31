@@ -23,11 +23,13 @@ public class HUDManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.OnOpenDialogPanel += OpenDialog;
+        EventManager.OnCloseDialogPanel += CloseDialog;
     }
 
     private void OnDisable()
     {
         EventManager.OnOpenDialogPanel -= OpenDialog;
+        EventManager.OnCloseDialogPanel -= CloseDialog;
     }
 
 
