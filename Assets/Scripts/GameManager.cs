@@ -8,6 +8,8 @@ public enum GameState { menu, inGame, pause, resume }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public bool canOpenDialog;
+    public string dialogText;
     private GameState _state;
 
     private void Awake()
@@ -20,6 +22,10 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update() {
+        OpenDialog();
     }
 
     #region GameStates
@@ -57,5 +63,19 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         #endif
     }
+    #endregion
+
+    #region GlobalActions
+    public void OpenDialog()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canOpenDialog)
+        {
+            EventManager.DialogPanelOpened();
+        }
+    }
+    
+
+    private void UpdateMask() {}
+    
     #endregion
 }
