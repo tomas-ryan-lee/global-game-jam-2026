@@ -23,13 +23,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _state = GameState.menu;
+       GameMenu();
     }
 
     #region GameStates
     public void GameMenu()
     {
         _state = GameState.menu;
+        Time.timeScale = 0;
     }
 
     public void GamePlay()
