@@ -19,17 +19,14 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-    }
-
-    private void Start()
-    {
-        _state = GameState.menu;
+        DontDestroyOnLoad(gameObject);
     }
 
     #region GameStates
     public void GameMenu()
     {
         _state = GameState.menu;
+        Time.timeScale = 0;
     }
 
     public void GamePlay()
@@ -40,8 +37,6 @@ public class GameManager : MonoBehaviour
 
     public void GamePause()
     {
-        if (_state != GameState.inGame) return;
-
         _state = GameState.pause;
         Time.timeScale = 0;
     }
