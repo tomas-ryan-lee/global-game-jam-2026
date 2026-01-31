@@ -8,6 +8,16 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas menuScreen;
     [SerializeField] private Canvas pauseScreen;
 
+    private void OnEnable()
+    {
+        InputManager.OnEscapePressed += HandleEscape;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.OnEscapePressed -= HandleEscape;
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -17,6 +27,11 @@ public class MenuManager : MonoBehaviour
         }
 
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start() {
+        OnGameMenu();
     }
 
     public void OnGameMenu()
@@ -54,4 +69,13 @@ public class MenuManager : MonoBehaviour
 
         pauseScreen.enabled = false;
     }
+
+    private void HandleEscape()
+    {
+        if (!pauseScreen.enabled)
+            OnGamePause();
+        else if (pauseScreen.enabled)
+            OnGameResume();
+    }
+
 }
