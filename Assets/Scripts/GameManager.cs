@@ -108,8 +108,6 @@ public class GameManager : MonoBehaviour
             parentTransform
         );
 
-        newMaskInstance.transform.localScale = new Vector3(6f, 6f, 6f);
-
         pnjToUpdate.hasMask = true;
         if (emotion == pnjToUpdate.emotion) {
             pnjToUpdate.hasGoodMask = true;
