@@ -25,6 +25,8 @@ public class PNJScript : MonoBehaviour
         {
             GameManager.Instance.canOpenDialog = false;
             GameManager.Instance.dialogText = null;
+            GameManager.Instance.maskToUpdate = null;
+            GameManager.Instance.pnjToUpdate = null;
         }
     }
 
