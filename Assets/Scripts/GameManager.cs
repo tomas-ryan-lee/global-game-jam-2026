@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public bool canOpenDialog;
     public string dialogText;
+    public PNJScript pnjToUpdate;
     public GameObject maskToUpdate;
     private GameState _state;
 
@@ -77,9 +78,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeMask(GameObject newMask)
+    public void ChangeMask(GameObject newMask, EmotionsList emotion)
     {
-        if (!maskToUpdate) return;
+        if (!maskToUpdate && !pnjToUpdate) return;
 
         // Sauvegarde des transforms
         Transform oldTransform = maskToUpdate.transform;
@@ -98,12 +99,12 @@ public class GameManager : MonoBehaviour
             parentTransform
         );
 
-        // (Optionnel) garder l'échelle
-        // newMaskInstance.transform.localScale = oldTransform.localScale;
+        pnjToUpdate.hasMask = true;
+        if (emotion == pnjToUpdate.emotion) {
+            pnjToUpdate.hasGoodMask = true;
+        }
 
         CloseDialog();
-
-        Debug.Log("Removed");
     }
 
     private void CloseDialog() => EventManager.DialogPanelClosed();
