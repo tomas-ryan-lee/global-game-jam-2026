@@ -1488,6 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeMaskButton
   newMask: {fileID: 1253495166}
+  emotion: 0
 --- !u!1 &792421781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,6 +1985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeMaskButton
   newMask: {fileID: 0}
+  emotion: 0
 --- !u!1 &895536214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,6 +2875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   canOpenDialog: 0
   dialogText: 
+  pnjToUpdate: {fileID: 0}
   maskToUpdate: {fileID: 0}
 --- !u!1 &1436738642
 GameObject:
@@ -3712,6 +3715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeMaskButton
   newMask: {fileID: 0}
+  emotion: 0
 --- !u!1 &1887755708
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,6 +4122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeMaskButton
   newMask: {fileID: 0}
+  emotion: 0
 --- !u!1 &2131393557
 GameObject:
   m_ObjectHideFlags: 0
