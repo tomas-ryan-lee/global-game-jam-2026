@@ -1,16 +1,25 @@
 using UnityEngine;
+using System;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static EventManager Instance { get; private set; }
+
+    public static event Action OnOpenDialogPanel;
+    public static event Action OnCloseDialogPanel;
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static void DialogPanelOpened() => OnOpenDialogPanel?.Invoke();
+    public static void DialogPanelClosed() => OnCloseDialogPanel?.Invoke();
 }
