@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public bool canOpenDialog;
+    public bool canOpenDialogOrchestral;
     public string dialogText;
     public PNJScript pnjToUpdate;
     public GameObject maskToUpdate;
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         OpenDialog();
+        OpenDialogOrchestral();
     }
 
     #region GameStates
@@ -78,6 +79,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OpenDialogOrchestral()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canOpenDialogOrchestral)
+        {
+            EventManager.OrchestralDialogPanelOpened();
+        }
+    }
+
     public void ChangeMask(GameObject newMask, EmotionsList emotion)
     {
         if (!maskToUpdate && !pnjToUpdate) return;
@@ -108,6 +117,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void CloseDialog() => EventManager.DialogPanelClosed();
+    private void CloseDialogOrchestral() => EventManager.OrchestralDialogPanelClosed();
 
     #endregion
 }

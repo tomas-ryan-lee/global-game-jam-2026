@@ -7,6 +7,7 @@ public class HUDManager : MonoBehaviour
 
     [SerializeField] private Canvas _dialogPanel;
     [SerializeField] private TMP_Text _dialogText;
+    [SerializeField] private GameObject _maskPanel;
 
     private void Awake()
     {
@@ -24,12 +25,16 @@ public class HUDManager : MonoBehaviour
     {
         EventManager.OnOpenDialogPanel += OpenDialog;
         EventManager.OnCloseDialogPanel += CloseDialog;
+        EventManager.OnOpenOrchestralDialogPanel += OpenOrchestralDialog;
+        EventManager.OnCloseOrchestralDialogPanel += CloseOrchestralDialog;
     }
 
     private void OnDisable()
     {
         EventManager.OnOpenDialogPanel -= OpenDialog;
         EventManager.OnCloseDialogPanel -= CloseDialog;
+        EventManager.OnOpenOrchestralDialogPanel -= OpenOrchestralDialog;
+        EventManager.OnCloseOrchestralDialogPanel -= CloseOrchestralDialog;
     }
 
 
@@ -43,4 +48,15 @@ public class HUDManager : MonoBehaviour
     }
 
     private void CloseDialog() => _dialogPanel.enabled = false;
+
+    private void OpenOrchestralDialog()
+    {
+        OpenDialog();
+        _maskPanel.SetActive(false);
+    }
+    private void CloseOrchestralDialog()
+    {
+        CloseDialog();
+        _maskPanel.SetActive(true);
+    }
 }

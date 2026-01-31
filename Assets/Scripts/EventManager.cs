@@ -7,6 +7,8 @@ public class EventManager : MonoBehaviour
 
     public static event Action OnOpenDialogPanel;
     public static event Action OnCloseDialogPanel;
+    public static event Action OnOpenOrchestralDialogPanel;
+    public static event Action OnCloseOrchestralDialogPanel;
 
     private void Awake()
     {
@@ -22,4 +24,7 @@ public class EventManager : MonoBehaviour
 
     public static void DialogPanelOpened() => OnOpenDialogPanel?.Invoke();
     public static void DialogPanelClosed() => OnCloseDialogPanel?.Invoke();
+
+    public static void OrchestralDialogPanelOpened() => OnOpenOrchestralDialogPanel?.Invoke();
+    public static void OrchestralDialogPanelClosed() => OnCloseOrchestralDialogPanel?.Invoke();
 }
