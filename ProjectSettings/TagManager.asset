@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - PNJ
+  - OldMask
   layers:
   - Default
   - TransparentFX

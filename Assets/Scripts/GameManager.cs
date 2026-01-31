@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public bool canOpenDialog;
     public string dialogText;
-    public PNJScript pnjToUpdate;
+    public GameObject maskToUpdate;
     private GameState _state;
 
     private void Awake()
@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update() {
+    private void Update()
+    {
         OpenDialog();
     }
 
@@ -59,11 +60,11 @@ public class GameManager : MonoBehaviour
 
     public void GameQuit()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+#else
+        Application.Quit();
+#endif
     }
     #endregion
 
@@ -76,14 +77,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeMask(GameObject newMask) 
+    public void ChangeMask(GameObject newMask)
     {
-        pnjToUpdate.ChangeMask(newMask);
+        if (!maskToUpdate) return;
+
+        // Sauvegarde des transforms
+        Transform oldTransform = maskToUpdate.transform;
+        Vector3 position = oldTransform.position;
+        Quaternion rotation = oldTransform.rotation;
+        Transform parentTransform = oldTransform.parent;
+
+        // Suppression de l'ancien
+        Destroy(maskToUpdate.gameObject);
+
+        // Instanciation du nouveau
+        GameObject newMaskInstance = Instantiate(
+            newMask,
+            position,
+            rotation,
+            parentTransform
+        );
+
+        // (Optionnel) garder l'échelle
+        // newMaskInstance.transform.localScale = oldTransform.localScale;
 
         CloseDialog();
+
+        Debug.Log("Removed");
     }
 
     private void CloseDialog() => EventManager.DialogPanelClosed();
-    
+
     #endregion
 }

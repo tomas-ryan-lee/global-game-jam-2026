@@ -2190,7 +2190,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &1160682333
 GameObject:
@@ -2873,7 +2873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   canOpenDialog: 0
   dialogText: 
-  pnjToUpdate: {fileID: 0}
+  maskToUpdate: {fileID: 0}
 --- !u!1 &1436738642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,6 +4409,10 @@ PrefabInstance:
     - target: {fileID: 1684567747467764279, guid: 9433586c81cbbc3488cbe55c0dee9a9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750544209364437124, guid: 9433586c81cbbc3488cbe55c0dee9a9f, type: 3}
+      propertyPath: m_TagString
+      value: OldMask
       objectReference: {fileID: 0}
     - target: {fileID: 7272383070294738137, guid: 9433586c81cbbc3488cbe55c0dee9a9f, type: 3}
       propertyPath: m_Name
