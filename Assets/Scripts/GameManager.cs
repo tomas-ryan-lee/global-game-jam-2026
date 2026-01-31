@@ -89,13 +89,13 @@ public class GameManager : MonoBehaviour
 
     public void ChangeMask(GameObject newMask, EmotionsList emotion)
     {
-        if (!maskToUpdate && !pnjToUpdate) return;
+        if (!maskToUpdate || !pnjToUpdate) return;
 
         // Sauvegarde des transforms
-        Transform oldTransform = maskToUpdate.transform;
-        Vector3 position = oldTransform.position;
-        Quaternion rotation = oldTransform.rotation;
-        Transform parentTransform = oldTransform.parent;
+        Vector3 position = maskToUpdate.transform.position;
+        Vector3 scale = maskToUpdate.transform.localScale;
+        Quaternion rotation = Quaternion.identity;
+        Transform parentTransform = maskToUpdate.transform.parent;
 
         // Suppression de l'ancien
         Destroy(maskToUpdate.gameObject);
