@@ -45,6 +45,7 @@ public class HUDManager : MonoBehaviour
     private void OpenDialog() {
         _dialogText.text = GameManager.Instance.dialogText;
         _dialogPanel.enabled = true;
+        EventManager.PlayMusic(MusicManager.Instance.dialogSound);
     }
 
     private void CloseDialog() => _dialogPanel.enabled = false;

@@ -6,6 +6,7 @@ public class MusicManager : MonoBehaviour
 
     [Header("Stats musics")]
     public AudioClip victorySound;
+    public AudioClip dialogSound;
 
     [Header("Mask musics")]
     public AudioClip joySound;

@@ -3453,6 +3453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   victorySound: {fileID: 8300000, guid: e959f9879c267f040b1b5888388ab7c6, type: 3}
+  dialogSound: {fileID: 8300000, guid: bc3c6cebe79fbb947a2a586a596a282e, type: 3}
   joySound: {fileID: 8300000, guid: f25ca1a2efd1e444c8605ea81fe65270, type: 3}
   sadSound: {fileID: 8300000, guid: 3e109ab11b9f7694289355abe2deea44, type: 3}
   wrathSound: {fileID: 8300000, guid: af04779b04ae2fe44962bb1202eda2ff, type: 3}
