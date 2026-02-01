@@ -7,15 +7,18 @@ public class MenuManager : MonoBehaviour
     [Header("UI Screens")]
     [SerializeField] private Canvas menuScreen;
     [SerializeField] private Canvas pauseScreen;
+    [SerializeField] private Canvas victoryScreen;
 
     private void OnEnable()
     {
         InputManager.OnEscapePressed += HandleEscape;
+        EventManager.OnVictoryScreenDisplayed += OnGameVictory;
     }
 
     private void OnDisable()
     {
         InputManager.OnEscapePressed -= HandleEscape;
+        EventManager.OnVictoryScreenDisplayed -= OnGameVictory;
     }
 
     private void Awake()
@@ -40,6 +43,7 @@ public class MenuManager : MonoBehaviour
 
         menuScreen.enabled = true;
         pauseScreen.enabled = false;
+        victoryScreen.enabled = false;
     }
 
     public void OnGamePlay()
@@ -61,6 +65,12 @@ public class MenuManager : MonoBehaviour
         GameManager.Instance.GameResume();
 
         pauseScreen.enabled = false;
+    }
+
+    public void OnGameVictory()
+    {
+        GameManager.Instance.GameVictory();
+        victoryScreen.enabled = true;
     }
 
     public void OnGameQuit()

@@ -45,6 +45,7 @@ public class HUDManager : MonoBehaviour
     private void OpenDialog() {
         _dialogText.text = GameManager.Instance.dialogText;
         _dialogPanel.enabled = true;
+        EventManager.PlayMusic(MusicManager.Instance.dialogSound);
     }
 
     private void CloseDialog() => _dialogPanel.enabled = false;
@@ -53,6 +54,9 @@ public class HUDManager : MonoBehaviour
     {
         OpenDialog();
         _maskPanel.SetActive(false);
+        EventManager.PlayMusic(MusicManager.Instance.victorySound);
+        EventManager.VictoryCameraSwitched();
+        EventManager.VictoryScreenDisplayed();
     }
     private void CloseOrchestralDialog()
     {
