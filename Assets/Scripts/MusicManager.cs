@@ -10,6 +10,16 @@ public class MusicManager : MonoBehaviour
     public AudioClip fearSound;
     [SerializeField] private AudioSource _audioSource;
 
+    private void OnEnable() {
+        EventManager.OnMusicPlayed += PlayMusic;
+        EventManager.OnMusicStopped += StopMusic;
+    }
+
+    private void OnDisable() {
+        EventManager.OnMusicPlayed -= PlayMusic;
+        EventManager.OnMusicStopped -= StopMusic;
+    }
+
     private void PlayMusic(AudioClip clip)
     {
         _audioSource.clip = clip;
