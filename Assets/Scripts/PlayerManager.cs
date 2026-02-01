@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     private CharacterController _characterController;
 
     [Header("Camera Settings")]
+    [SerializeField] private Camera _playerCamera;
     [SerializeField] private float _distance = 5f;
     [SerializeField] private float _sensitivity = 3f;
     [SerializeField] private float _minY = -30f;
@@ -31,8 +32,6 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         _characterController = _player.GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     private void Update()
@@ -42,7 +41,7 @@ public class PlayerManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        MoveCamera()
+        MoveCamera();
     }
 
     private void Move()
@@ -53,14 +52,27 @@ public class PlayerManager : MonoBehaviour
 
     private void MoveCamera()
     {
-        rotationX += Input.GetAxis("Mouse X") * sensitivity;
-        rotationY -= Input.GetAxis("Mouse Y") * sensitivity;
-        rotationY = Mathf.Clamp(rotationY, minY, maxY);
+        if (GameManager.Instance._state == GameState.inGame || GameManager.Instance._state == GameState.resume)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
-        Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
-        Vector3 position = target.position - (rotation * Vector3.forward * distance);
+            rotationX += Input.GetAxis("Mouse X") * _sensitivity;
+            rotationY -= Input.GetAxis("Mouse Y") * _sensitivity;
+            rotationY = Mathf.Clamp(rotationY, _minY, _maxY);
 
-        transform.position = position;
-        transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
+
+            Vector3 targetPosition = _player.transform.position;
+            Vector3 offset = rotation * new Vector3(0, 0, -_distance);
+
+            _playerCamera.transform.position = targetPosition + offset;
+            _playerCamera.transform.LookAt(targetPosition + Vector3.up * 1.5f);
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }

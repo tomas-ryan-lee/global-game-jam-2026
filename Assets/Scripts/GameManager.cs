@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public PNJScript pnjToUpdate;
     public GameObject maskToUpdate;
 
-    private GameState _state;
+    public GameState _state;
 
     private void OnEnable() {
         EventManager.OnVictoryCameraSwitched += SwitchToVictoryCamera;
