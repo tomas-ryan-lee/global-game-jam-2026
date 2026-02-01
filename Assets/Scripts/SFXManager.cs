@@ -5,23 +5,30 @@ public class SFXManager : MonoBehaviour
     public static SFXManager Instance { get; private set; }
     [SerializeField] private AudioSource _audioSource;
 
+    [Header("Common sounds")]
+    public AudioClip _NPCInteraction;
+    public AudioClip pupitreInteraction;
+
     [Header("Mask sounds")]
+    [SerializeField] private AudioClip _maskChoiceMenu;
+    [SerializeField] private AudioClip _maskChoiceSound;
 
 
     [Header("Dialog sounds")]
-    [SerializeField] private AudioClip _wrath;
-    [SerializeField] private AudioClip _fear;
+    public AudioClip wrath;
+    public AudioClip fear;
+    public AudioClip sad;
 
     private void OnEnable()
     {
-        EventManager.OnSFXPlayed += PlayMusic;
-        EventManager.OnSFXStopped += StopMusic;
+        EventManager.OnSFXPlayed += PlaySFX;
+        EventManager.OnSFXStopped += StopSFX;
     }
 
     private void OnDisable()
     {
-        EventManager.OnMusicPlayed -= PlayMusic;
-        EventManager.OnMusicStopped -= StopMusic;
+        EventManager.OnSFXPlayed -= PlaySFX;
+        EventManager.OnSFXStopped -= StopSFX;
     }
 
     private void Awake()

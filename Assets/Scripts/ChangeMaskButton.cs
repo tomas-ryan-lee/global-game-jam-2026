@@ -4,6 +4,7 @@ public class ChangeMaskButton : MonoBehaviour
     public GameObject newMask;
     public EmotionsList emotion;
     private AudioClip musicToPlay;
+    private AudioClip sfxToPlay;
 
     public void OnClick()
     {
@@ -14,24 +15,26 @@ public class ChangeMaskButton : MonoBehaviour
         {
             case EmotionsList.fear:
                 musicToPlay = MusicManager.Instance.fearSound;
-                break;
-            case EmotionsList.joy:
-                musicToPlay = MusicManager.Instance.joySound;
+                sfxToPlay = SFXManager.Instance.fear;
                 break;
             case EmotionsList.wrath:
                 musicToPlay = MusicManager.Instance.wrathSound;
+                sfxToPlay = SFXManager.Instance.wrath;
                 break;
             case EmotionsList.sad:
                 musicToPlay = MusicManager.Instance.sadSound;
+                sfxToPlay = SFXManager.Instance.sad;
                 break;
             default: 
                 musicToPlay = null;
+                sfxToPlay = null;
                 break;
         }
 
         if (musicToPlay != null)
-        {
             EventManager.PlayMusic(musicToPlay);
-        }
+
+        if (sfxToPlay != null)
+            EventManager.PlaySFX(sfxToPlay, false);
     }
 }

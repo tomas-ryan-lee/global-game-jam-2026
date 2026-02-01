@@ -54,6 +54,7 @@ public class HUDManager : MonoBehaviour
     {
         OpenDialog();
         _maskPanel.SetActive(false);
+        EventManager.PlaySFX(SFXManager.Instance.pupitreInteraction, false);
         EventManager.PlayMusic(MusicManager.Instance.victorySound);
         EventManager.VictoryCameraSwitched();
         EventManager.VictoryScreenDisplayed();
