@@ -12,11 +12,13 @@ public class PlayerManager : MonoBehaviour
     [Header("Camera Settings")]
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private float _distance = 5f;
+    [SerializeField] private float _height = 1.8f;
     [SerializeField] private float _sensitivity = 3f;
-    [SerializeField] private float _minY = -30f;
+    [SerializeField] private float _minY = -40f;
     [SerializeField] private float _maxY = 60f;
 
-    float rotationX, rotationY;
+    private float _rotationX;
+    private float _rotationY;
 
     private void Awake()
     {
@@ -54,20 +56,20 @@ public class PlayerManager : MonoBehaviour
     {
         if (GameManager.Instance._state == GameState.inGame || GameManager.Instance._state == GameState.resume)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            float mouseX = Input.GetAxis("Mouse X") * _sensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * _sensitivity;
 
-            rotationX += Input.GetAxis("Mouse X") * _sensitivity;
-            rotationY -= Input.GetAxis("Mouse Y") * _sensitivity;
-            rotationY = Mathf.Clamp(rotationY, _minY, _maxY);
+            _rotationY += mouseX;
+            _rotationX -= mouseY;
+            _rotationX = Mathf.Clamp(_rotationX, _minY, _maxY);
 
-            Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
+            Quaternion rotation = Quaternion.Euler(_rotationX, _rotationY, 0f);
 
-            Vector3 targetPosition = _player.transform.position;
-            Vector3 offset = rotation * new Vector3(0, 0, -_distance);
+            Vector3 targetPosition = _player.transform.position + Vector3.up * _height;
+            Vector3 offset = rotation * new Vector3(0f, 0f, _distance);
 
             _playerCamera.transform.position = targetPosition + offset;
-            _playerCamera.transform.LookAt(targetPosition + Vector3.up * 1.5f);
+            _playerCamera.transform.LookAt(targetPosition);
         }
         else
         {

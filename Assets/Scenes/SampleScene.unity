@@ -166,7 +166,8 @@ MonoBehaviour:
   _player: {fileID: 531418551}
   _speed: 17
   _playerCamera: {fileID: 330585545}
-  _distance: 5
+  _distance: 1
+  _height: 1
   _sensitivity: 3
   _minY: -30
   _maxY: 60
@@ -3781,6 +3782,7 @@ MonoBehaviour:
   dialogText: 
   pnjToUpdate: {fileID: 0}
   maskToUpdate: {fileID: 0}
+  _state: 0
 --- !u!1 &1436738642
 GameObject:
   m_ObjectHideFlags: 0
