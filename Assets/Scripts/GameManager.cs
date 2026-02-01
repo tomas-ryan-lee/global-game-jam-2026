@@ -3,17 +3,34 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public enum GameState { menu, inGame, pause, resume }
+public enum GameState { menu, inGame, pause, resume, victory }
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
+    [Header("Camera Settings")]
+    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private Camera _victoryCamera;
+
+    [Header("Dialog Settings")]
     public bool canOpenDialog;
     public bool canOpenDialogOrchestral;
     public string dialogText;
+
+    [Header("PNJ Settings")]
     public PNJScript pnjToUpdate;
     public GameObject maskToUpdate;
+
     private GameState _state;
+
+    private void OnEnable() {
+        EventManager.OnVictoryCameraSwitched += SwitchToVictoryCamera;
+    }
+
+    private void OnDisable() {
+        EventManager.OnVictoryCameraSwitched -= SwitchToVictoryCamera;
+    }
 
     private void Awake()
     {
@@ -25,6 +42,10 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start() {
+        SwitchToMainCamera();
     }
 
     private void Update()
@@ -59,6 +80,12 @@ public class GameManager : MonoBehaviour
 
         _state = GameState.resume;
         Time.timeScale = 1;
+    }
+
+    public void GameVictory()
+    {
+        _state = GameState.victory;
+        Time.timeScale = 0;
     }
 
     public void GameQuit()
@@ -119,6 +146,17 @@ public class GameManager : MonoBehaviour
 
     private void CloseDialog() => EventManager.DialogPanelClosed();
     private void CloseDialogOrchestral() => EventManager.OrchestralDialogPanelClosed();
+
+    private void SwitchToMainCamera()
+    {
+        _mainCamera.enabled = true;
+        _victoryCamera.enabled = false;
+    }
+    private void SwitchToVictoryCamera()
+    {
+        _mainCamera.enabled = false;
+        _victoryCamera.enabled = true;
+    }
 
     #endregion
 }

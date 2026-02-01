@@ -55,6 +55,8 @@ public class HUDManager : MonoBehaviour
         OpenDialog();
         _maskPanel.SetActive(false);
         EventManager.PlayMusic(MusicManager.Instance.victorySound);
+        EventManager.VictoryCameraSwitched();
+        EventManager.VictoryScreenDisplayed();
     }
     private void CloseOrchestralDialog()
     {
