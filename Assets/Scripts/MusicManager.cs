@@ -2,23 +2,22 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audioSource;
 
     [Header("Mask musics")]
-    [SerializeField] private AudioClip _joySound;
-    [SerializeField] private AudioClip _sadSound;
-    [SerializeField] private AudioClip _wrathSound;
-    [SerializeField] private AudioClip _fearSound;
+    public AudioClip joySound;
+    public AudioClip sadSound;
+    public AudioClip wrathSound;
+    public AudioClip fearSound;
+    [SerializeField] private AudioSource _audioSource;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void PlayMusic(AudioClip clip)
     {
-        
+        _audioSource.clip = clip;
+        _audioSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void StopMusic()
     {
-        
+        _audioSource.Stop();
     }
 }
