@@ -9902,10 +9902,10 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: -9175728390901994990, guid: a0e123ea058424dab8a6fcfa04e48625, type: 3}
-  m_Mesh1: {fileID: 8865505124499947694, guid: e9e366676bd384f5682bf95dbe4b12f0, type: 3}
+  m_Mesh: {fileID: 4493585093827132993, guid: 69a98ad82910a4413ad4e70b944dc062, type: 3}
+  m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
-  m_Mesh3: {fileID: 4493585093827132993, guid: 69a98ad82910a4413ad4e70b944dc062, type: 3}
+  m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
@@ -14890,7 +14890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &685220452
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15088,10 +15088,10 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: -9175728390901994990, guid: a0e123ea058424dab8a6fcfa04e48625, type: 3}
-  m_Mesh1: {fileID: 8865505124499947694, guid: e9e366676bd384f5682bf95dbe4b12f0, type: 3}
+  m_Mesh: {fileID: 8865505124499947694, guid: e9e366676bd384f5682bf95dbe4b12f0, type: 3}
+  m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
-  m_Mesh3: {fileID: 4493585093827132993, guid: 69a98ad82910a4413ad4e70b944dc062, type: 3}
+  m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
@@ -20281,9 +20281,9 @@ ParticleSystemRenderer:
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: -9175728390901994990, guid: a0e123ea058424dab8a6fcfa04e48625, type: 3}
-  m_Mesh1: {fileID: 8865505124499947694, guid: e9e366676bd384f5682bf95dbe4b12f0, type: 3}
+  m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
-  m_Mesh3: {fileID: 4493585093827132993, guid: 69a98ad82910a4413ad4e70b944dc062, type: 3}
+  m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
@@ -35158,7 +35158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1805866472
 Transform:
   m_ObjectHideFlags: 0
@@ -40026,7 +40026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1982235671
 Transform:
   m_ObjectHideFlags: 0
