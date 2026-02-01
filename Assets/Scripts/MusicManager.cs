@@ -4,6 +4,9 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance { get; private set; }
 
+    [Header("Stats musics")]
+    public AudioClip victorySound;
+
     [Header("Mask musics")]
     public AudioClip joySound;
     public AudioClip sadSound;

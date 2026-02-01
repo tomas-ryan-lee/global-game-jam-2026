@@ -53,6 +53,7 @@ public class HUDManager : MonoBehaviour
     {
         OpenDialog();
         _maskPanel.SetActive(false);
+        EventManager.PlayMusic(MusicManager.Instance.victorySound);
     }
     private void CloseOrchestralDialog()
     {
