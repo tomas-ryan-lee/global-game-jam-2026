@@ -5,6 +5,7 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance { get; private set; }
 
     [Header("Stats musics")]
+    public AudioClip mainSound;
     public AudioClip victorySound;
     public AudioClip dialogSound;
 

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         _state = GameState.inGame;
         Time.timeScale = 1;
+        EventManager.PlayMusic(MusicManager.Instance.mainSound);
     }
 
     public void GamePause()
