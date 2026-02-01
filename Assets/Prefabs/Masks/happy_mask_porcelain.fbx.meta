@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 3d62744d9d5c4234ca837d74416b2e8a
+guid: 8c41da7b6395ecc4f8d15ef6e69593ff
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Substance_graph_basecolor
-    second: {fileID: 2800000, guid: 5a86a1ee9ebf95347894e0f634cd181c, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
