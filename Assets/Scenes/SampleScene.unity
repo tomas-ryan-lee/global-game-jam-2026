@@ -3452,13 +3452,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2529540414f2e498f7c4a8abed3a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
-  mainSound: {fileID: 8300000, guid: 497e73bb6db1fd74f82f638417370f61, type: 3}
+  mainSound: {fileID: 8300000, guid: 88c68c172e696e24995a87d638fb7495, type: 3}
   victorySound: {fileID: 8300000, guid: e959f9879c267f040b1b5888388ab7c6, type: 3}
   dialogSound: {fileID: 8300000, guid: bc3c6cebe79fbb947a2a586a596a282e, type: 3}
   joySound: {fileID: 8300000, guid: f25ca1a2efd1e444c8605ea81fe65270, type: 3}
-  sadSound: {fileID: 8300000, guid: 3e109ab11b9f7694289355abe2deea44, type: 3}
+  sadSound: {fileID: 8300000, guid: c16a5c60f1286d642a72ab1b21811350, type: 3}
   wrathSound: {fileID: 8300000, guid: af04779b04ae2fe44962bb1202eda2ff, type: 3}
-  fearSound: {fileID: 8300000, guid: ea383ca5540164141b8a32561e5cb129, type: 3}
+  fearSound: {fileID: 8300000, guid: 808842c5f7d7bf94f847e1141a36ea9d, type: 3}
   _audioSource: {fileID: 1457972217}
 --- !u!82 &1457972217
 AudioSource:
