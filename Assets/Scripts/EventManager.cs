@@ -13,6 +13,8 @@ public class EventManager : MonoBehaviour
     public static event Action<AudioClip> OnMusicPlayed;
     public static event Action OnMusicStopped;
     public static event Action OnVictoryScreenDisplayed;
+    public static event Action<AudioClip, bool> OnSFXPlayed;
+    public static event Action OnSFXStopped;
 
     private void Awake()
     {
@@ -36,5 +38,8 @@ public class EventManager : MonoBehaviour
     public static void VictoryScreenDisplayed() => OnVictoryScreenDisplayed?.Invoke();
 
     public static void PlayMusic(AudioClip clip) => OnMusicPlayed?.Invoke(clip);
-    public static void Music() => OnMusicStopped?.Invoke();
+    public static void StopMusic() => OnMusicStopped?.Invoke();
+
+    public static void PlaySFX(AudioClip clip, bool loop) => OnSFXPlayed?.Invoke(clip, loop);
+    public static void StopSFX() => OnSFXStopped?.Invoke();
 }
