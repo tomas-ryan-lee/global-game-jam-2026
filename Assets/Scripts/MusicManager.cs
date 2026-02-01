@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager Instance { get; private set; }
 
     [Header("Mask musics")]
     public AudioClip joySound;
@@ -18,6 +19,18 @@ public class MusicManager : MonoBehaviour
     private void OnDisable() {
         EventManager.OnMusicPlayed -= PlayMusic;
         EventManager.OnMusicStopped -= StopMusic;
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void PlayMusic(AudioClip clip)
