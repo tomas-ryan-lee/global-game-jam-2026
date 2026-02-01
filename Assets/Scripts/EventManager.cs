@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour
     public static event Action OnVictoryCameraSwitched;
     public static event Action<AudioClip> OnMusicPlayed;
     public static event Action OnMusicStopped;
+    public static event Action OnVictoryScreenDisplayed;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class EventManager : MonoBehaviour
     public static void OrchestralDialogPanelClosed() => OnCloseOrchestralDialogPanel?.Invoke();
 
     public static void VictoryCameraSwitched() => OnVictoryCameraSwitched?.Invoke();
+    public static void VictoryScreenDisplayed() => OnVictoryScreenDisplayed?.Invoke();
 
     public static void PlayMusic(AudioClip clip) => OnMusicPlayed?.Invoke(clip);
     public static void Music() => OnMusicStopped?.Invoke();

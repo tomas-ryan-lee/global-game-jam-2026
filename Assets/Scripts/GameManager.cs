@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public enum GameState { menu, inGame, pause, resume }
+public enum GameState { menu, inGame, pause, resume, victory }
 
 public class GameManager : MonoBehaviour
 {
@@ -80,6 +80,12 @@ public class GameManager : MonoBehaviour
 
         _state = GameState.resume;
         Time.timeScale = 1;
+    }
+
+    public void GameVictory()
+    {
+        _state = GameState.victory;
+        Time.timeScale = 0;
     }
 
     public void GameQuit()
